@@ -22,11 +22,12 @@ module.exports = {
   plugins: [
     { src: '~/plugins/nuxt-client-init.ts', ssr: false },
     { src: '~plugins/element-ui' },
+    { src: '~plugins/font-awesome' },
   ],
   env: {
     baseUrl:
-      process.env.BASE_URL ||
-      `http://${host}:${port}`
+    process.env.BASE_URL ||
+    `http://${host}:${port}`
   },
   head: {
     title: "tt1",

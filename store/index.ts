@@ -32,10 +32,17 @@ export class Repository {
   owner: Owner;
   language: string;
   description: string;
+  license: {
+    spdx_id: string;
+  };
   stargazers_count: number;
 
   get languageIconUrl(): string | undefined {
     return ICON_URLS_BY_LANGUAGE[this.language];
+  }
+
+  get licenseName(): string {
+    return this.license && this.license.spdx_id ? this.license.spdx_id : 'Unknown';
   }
 }
 

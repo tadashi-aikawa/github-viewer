@@ -3,13 +3,19 @@
     <el-card class="card" :body-style="{ padding: '0px' }" shadow="always">
       <img :src="repository.owner.avatar_url" class="image">
       <div style="padding: 14px;">
-        <div class="repository-name">{{ repository.name }}</div>
-        <div class="owner-name">{{ repository.owner.login }}</div>
+        <div class="repository-name">
+          <img :src="repository.languageIconUrl" width="25" height="25"/>
+          <span style="margin-left: 5px;">{{ repository.name }}</span>
+        </div>
+        <div class="owner-name">
+          <font-awesome-icon icon="user" size="sm"/>
+          {{ repository.owner.login }}
+        </div>
         <div class="bottom clearfix">
           <i class="el-icon-star-on">{{ repository.stargazers_count }}</i>
         </div>
-        <div style="text-align: right;">
-          <img :src="repository.languageIconUrl" width="35" height="35" />
+        <div align="right">
+          <span class="license">{{ repository.licenseName }}</span>
         </div>
       </div>
     </el-card>
@@ -59,6 +65,7 @@
   }
 
   .owner-name {
+    padding-left: 5px;
     font-size: 13px;
     color: #999;
   }
@@ -68,7 +75,18 @@
     color: #606266;
   }
 
+  .license {
+    font-size: 12px;
+    color: #909399;
+  }
+
   .repository-name {
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+
+    font-size: 16px;
+    font-weight: bold;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
