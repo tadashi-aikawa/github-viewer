@@ -1,13 +1,19 @@
 <template>
-  <el-card class="card" :body-style="{ padding: '0px' }" shadow="always">
-    <img :src="repository.owner.avatar_url" class="image">
-    <div style="padding: 14px;">
-      <span>{{ repository.owner.login }}</span>
-      <div class="bottom clearfix">
-        {{ repository.id }}
+  <el-tooltip :content="repository.description" effect="light" popper-class="popup">
+    <el-card class="card" :body-style="{ padding: '0px' }" shadow="always">
+      <img :src="repository.owner.avatar_url" class="image">
+      <div style="padding: 14px;">
+        <div class="repository-name">{{ repository.name }}</div>
+        <div class="owner-name">{{ repository.owner.login }}</div>
+        <div class="bottom clearfix">
+          <i class="el-icon-star-on">{{ repository.stargazers_count }}</i>
+        </div>
+        <div style="text-align: right;">
+          <img :src="repository.languageIconUrl" width="35" height="35" />
+        </div>
       </div>
-    </div>
-  </el-card>
+    </el-card>
+  </el-tooltip>
 </template>
 
 
@@ -17,17 +23,7 @@
     Prop,
     Vue
   } from "nuxt-property-decorator"
-
-  class Owner {
-    id: number;
-    login: string;
-    avatar_url: string;
-  }
-
-  interface Repository {
-    id: number,
-    owner: Owner,
-  }
+  import {Repository} from "store/index";
 
   @Component({})
   export default class Card extends Vue {
@@ -60,8 +56,27 @@
   .card:hover {
     filter: brightness(0.4);
     cursor: pointer;
-    /*filter: invert(100%);*/
-    /*opacity: 0.5;*/
   }
 
+  .owner-name {
+    font-size: 13px;
+    color: #999;
+  }
+
+  .el-icon-star-on {
+    font-size: 15px;
+    color: #606266;
+  }
+
+  .repository-name {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+</style>
+
+<style>
+  .popup {
+    max-width: 50vw;
+  }
 </style>

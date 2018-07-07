@@ -1,40 +1,30 @@
 <template>
-  <div>
-    <el-menu
-      default-active="2"
-      class="el-menu-demo"
-      mode="horizontal"
-      active-text-color="#ff0000">
-      <el-menu-item index="1">
-        <img src="https://tctechcrunch2011.files.wordpress.com/2010/07/github-logo.png?w=60&h=60"/>
-      </el-menu-item>
-      <el-menu-item index="2">Processing Center</el-menu-item>
-      <el-submenu index="3">
-        <template slot="title">Workspace</template>
-        <el-menu-item index="3-1">item one</el-menu-item>
-        <el-menu-item index="3-2">item two</el-menu-item>
-        <el-menu-item index="3-3">item three</el-menu-item>
-        <el-submenu index="3-4">
-          <template slot="title">item four</template>
-          <el-menu-item index="3-4-1">item one</el-menu-item>
-          <el-menu-item index="3-4-2">item two</el-menu-item>
-          <el-menu-item index="3-4-3">item three</el-menu-item>
-        </el-submenu>
-      </el-submenu>
-      <el-menu-item index="4" disabled>Info</el-menu-item>
-      <el-menu-item index="5"><a href="https://www.ele.me" target="_blank">Orders</a></el-menu-item>
-    </el-menu>
+  <el-container>
+    <el-header class="header">
+      <el-menu
+        default-active="2"
+        class="el-menu-demo"
+        mode="horizontal">
+        <el-menu-item index="1">
+          <img src="https://tctechcrunch2011.files.wordpress.com/2010/07/github-logo.png?w=60&h=60"/>
+        </el-menu-item>
+        <el-menu-item index="2">Repositories</el-menu-item>
+      </el-menu>
+    </el-header>
 
-    <div style="padding: 10px;">
-      <el-row>
-        <el-col :span="2" v-for="repository in repositories" :key="repository.id">
-          <a :href="repository.html_url" target="_blank">
-            <Card :repository="repository" />
-          </a>
-        </el-col>
-      </el-row>
-    </div>
-  </div>
+    <el-main>
+      <div style="padding: 10px;">
+        <el-row>
+          <el-col :xs="12" :sm="8" :md="6" :lg="4" :xl="3"
+                  v-for="repository in repositories" :key="repository.id">
+            <a :href="repository.html_url" target="_blank">
+              <Card :repository="repository" />
+            </a>
+          </el-col>
+        </el-row>
+      </div>
+    </el-main>
+  </el-container>
 </template>
 
 <script lang="ts">
@@ -55,9 +45,20 @@
   }
 </script>
 <style scoped>
+  .header {
+    position: sticky;
+    z-index: 100;
+    top: 0;
+  }
+
+  .el-col {
+    padding: 10px;
+  }
+
   a {
     text-decoration: none;
   }
+
   a:visited {
     color: inherit;
   }
