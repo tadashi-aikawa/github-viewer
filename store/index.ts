@@ -1,4 +1,5 @@
 import {plainToClass} from "class-transformer";
+import axios from "axios";
 
 const ICON_URLS_BY_LANGUAGE = {
   "JavaScript": "https://cdn.svgporn.com/logos/javascript.svg",
@@ -46,21 +47,44 @@ export class Repository {
   }
 }
 
+export class Response {
+  total_count: number;
+  items: Repository[];
+}
+
 export const state = () => ({
-  repositories: []
+  total: 0,
+  repositories: [],
+  searchingRepositories: false
 });
 
 export const mutations = {
+  setTotal(state, total) {
+    state.total = total;
+  },
   setRepositories(state, repositories) {
     state.repositories = repositories
+  },
+  startSearchRepositories(state) {
+    state.searchingRepositories = true;
+  },
+  endSearchRepositories(state) {
+    state.searchingRepositories = false;
   }
 };
 
 export const actions = {
-  // async nuxtServerInit({ commit }, { app }) {
   async nuxtClientInit({ commit }, { app }) {
-    const URL = "https://api.github.com/search/repositories?q=git&sort=stars&order=desc";
-    const repositories = (await app.$axios.$get(URL)).items.map(x => plainToClass(Repository, x));
-    commit("setRepositories", repositories);
+    // Write if you want to do something when application started
+  },
+
+  async searchRepositories({commit}, word) {
+    commit("startSearchRepositories");
+    const URL = `https://api.github.com/search/repositories?q=${word}&sort=stars&order=desc`;
+    const res: Object  = (await axios.get(URL)).data;
+    const response: Response = plainToClass(Response, res);
+    commit("setTotal", response.total_count);
+    commit("setRepositories", response.items);
+    commit("endSearchRepositories");
   }
 };

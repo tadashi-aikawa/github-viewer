@@ -1,7 +1,21 @@
 <template>
-  <div style="padding: 10px;">
+  <div
+    style="padding: 10px;"
+    v-loading.fullscreen.lock="searchingRepositories"
+    :element-loading-text="`Search for ${word}`"
+  >
     <el-row>
-      <el-col :xs="12" :sm="8" :md="6" :lg="4" :xl="3"
+      <el-input
+        placeholder="Type something"
+        prefix-icon="el-icon-search"
+        v-model="word"
+        @change="handleSearchRepositories"
+        autofucus
+      >
+      </el-input>
+    </el-row>
+    <el-row>
+      <el-col :xs="12" :sm="8" :md="6" :lg="6" :xl="4"
               v-for="repository in repositories" :key="repository.id">
         <a :href="repository.html_url" target="_blank">
           <Card :repository="repository" />
@@ -25,7 +39,13 @@
     }
   })
   export default class extends Vue {
-    @State repositories
+    @State repositories;
+    @State searchingRepositories;
+    word = "";
+
+    handleSearchRepositories(e) {
+      this.$store.dispatch('searchRepositories', this.word);
+    }
   }
 </script>
 <style scoped>

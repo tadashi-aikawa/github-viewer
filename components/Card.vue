@@ -10,9 +10,8 @@
         <div class="owner-name">
           <font-awesome-icon icon="user" size="sm"/>
           {{ repository.owner.login }}
-        </div>
-        <div class="bottom clearfix">
-          <i class="el-icon-star-on">{{ repository.stargazers_count }}</i>
+          <font-awesome-icon icon="star" size="sm"/>
+          {{ repository.stargazers_count }}
         </div>
         <div align="right">
           <span class="license">{{ repository.licenseName }}</span>
