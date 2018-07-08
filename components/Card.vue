@@ -13,6 +13,12 @@
           <font-awesome-icon icon="star" size="sm"/>
           {{ repository.stargazers_count }}
         </div>
+        <div class="time">
+          <font-awesome-icon icon="calendar" size="sm"/>
+          {{ repository.created_date }}
+          <font-awesome-icon icon="long-arrow-alt-right" size="sm"/>
+          {{ repository.updated_date }}
+        </div>
         <div align="right">
           <span class="license">{{ repository.licenseName }}</span>
         </div>
@@ -66,6 +72,12 @@
   .owner-name {
     padding-left: 5px;
     font-size: 13px;
+    color: #999;
+  }
+
+  .time {
+    padding-left: 5px;
+    font-size: 11px;
     color: #999;
   }
 
