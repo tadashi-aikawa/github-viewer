@@ -19,6 +19,7 @@ const host =
   process.env.npm_package_config_nuxt_host ||
   "localhost"
 module.exports = {
+  mode: 'spa',
   plugins: [
     { src: '~/plugins/nuxt-client-init.ts', ssr: false },
     { src: '~plugins/element-ui' },
