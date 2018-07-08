@@ -1,6 +1,10 @@
 Github Viewer
 =============
 
+## Demo
+
+https://tadashi-aikawa.github.io/github-viewer/repositories/
+
 ## Build Setup
 
 ``` bash
@@ -14,8 +18,12 @@ $ npm run dev
 $ npm run build
 $ npm start
 
+# build SPA
+$ npm ghpages-build
+
 # generate static project
 $ npm run generate
 ```
 
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
+
