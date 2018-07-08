@@ -5,6 +5,10 @@ Github Viewer
 
 https://tadashi-aikawa.github.io/github-viewer/repositories/
 
+<video controls autoplay loop width="640">
+  <source src="/demo.mp4" type="video/mp4">
+</video>
+
 ## Build Setup
 
 ``` bash
