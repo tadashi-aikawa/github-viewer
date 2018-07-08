@@ -65,7 +65,8 @@ module.exports = {
     "element-ui/lib/theme-chalk/index.css",
   ],
   build: {
-    vendor: ['element-ui']
+    vendor: ['element-ui'],
+    publicPath: 'https://tadashi-aikawa.github.io/github-viewer/'
   },
   modules: [
     "@nuxtjs/axios",
