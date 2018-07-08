@@ -20,6 +20,9 @@ const host =
   "localhost"
 module.exports = {
   mode: 'spa',
+  router: {
+    base: '/github-viewer/',
+  },
   plugins: [
     { src: '~/plugins/nuxt-client-init.ts', ssr: false },
     { src: '~plugins/element-ui' },
@@ -49,7 +52,7 @@ module.exports = {
       {
         rel: "icon",
         type: "image/x-icon",
-        href: "/favicon.ico"
+        href: "/github-viewer/favicon.ico",
       }
     ]
   },
@@ -66,7 +69,6 @@ module.exports = {
   ],
   build: {
     vendor: ['element-ui'],
-    publicPath: 'https://tadashi-aikawa.github.io/github-viewer/'
   },
   modules: [
     "@nuxtjs/axios",
