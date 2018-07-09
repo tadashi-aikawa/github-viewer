@@ -69,7 +69,22 @@ module.exports = {
   ],
   build: {
     vendor: ['element-ui'],
+    extend (config, { isDev, isClient }) {
+      // TODO: Add tslint
+      // if (isDev && isClient) {
+      //   // Run ESLint on save
+      //   config.module.rules.push({
+      //     enforce: 'pre',
+      //     test: /\.(js|vue)$/,
+      //     loader: 'eslint-loader',
+      //     exclude: /(node_modules)/
+      //   })
+      // }
+      // Extend only webpack config for client-bundle
+      if (isClient) { config.target = 'electron-renderer' }
+    }
   },
+  dev: process.env.NODE_ENV === 'DEV',
   modules: [
     "@nuxtjs/axios",
     "~/modules/typescript.js"

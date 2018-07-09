@@ -15,6 +15,7 @@
   },
   "scripts": {
     "dev": "nuxt -H 0.0.0.0 --spa",
+    "electron-dev": "NODE_ENV=DEV electron main.js",
     "build": "nuxt build",
     "ghpages-build": "nuxt build && rm -rf docs && mv dist docs",
     "start": "nuxt start",
@@ -22,6 +23,8 @@
   },
   "devDependencies": {
     "@types/node": "^9.4.6",
+    "electron": "^2.0.4",
+    "electron-devtools-installer": "^2.2.4",
     "ts-loader": "^3.5.0",
     "typescript": "^2.7.2"
   }
