@@ -12,3 +12,6 @@ dist
 
 # ide
 /.idea
+
+# Electron
+/main.js
