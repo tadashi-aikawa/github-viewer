@@ -20,9 +20,29 @@
     Vue
   } from "nuxt-property-decorator"
   import { State } from "vuex-class"
+  import Remote = Electron.Remote;
+  const remote: Remote = require('electron').remote
+  const fs = remote.require('fs')
+
+  import * as chokidar from 'chokidar'
 
   @Component({})
   export default class extends Vue {
     @State total;
+
+    mounted() {
+      console.log('mounted...')
+      const w = chokidar.watch('/home/vagrant/hoge.md')
+      w.on('change', (path, stats) => {
+        console.log(stats)
+        fs.readFile('/home/vagrant/hoge.md', "utf8", (err, data) => console.log(data))
+      })
+      // fs.readFile('/home/vagrant/hoge.md', "utf8", (err, data) => console.log(data))
+      // fs.watchFile('/home/vagrant/hoge.md', (type, filename) => {
+      //   console.log(type, filename)
+      //   fs.readFile('/home/vagrant/hoge.md', "utf8", (err, data) => console.log(data))
+      // })
+    }
+
   }
 </script>
