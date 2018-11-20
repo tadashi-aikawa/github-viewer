@@ -1,4 +1,4 @@
-const parseArgs = require("minimist")
+import parseArgs from 'minimist'
 const argv = parseArgs(process.argv.slice(2), {
   alias: {
     H: "hostname",
@@ -18,61 +18,60 @@ const host =
   process.env.HOST ||
   process.env.npm_package_config_nuxt_host ||
   "localhost"
-module.exports = {
-  mode: 'spa',
-  router: {
-    base: '/github-viewer/',
-  },
-  plugins: [
-    { src: '~/plugins/nuxt-client-init.ts', ssr: false },
-    { src: '~plugins/element-ui' },
-    { src: '~plugins/font-awesome' },
-  ],
-  env: {
-    baseUrl:
-    process.env.BASE_URL ||
-    `http://${host}:${port}`
-  },
-  head: {
-    title: "GitHub Viewer",
-    meta: [
-      { charset: "utf-8" },
-      {
-        name: "viewport",
-        content:
-          "width=device-width, initial-scale=1"
-      },
-      {
-        hid: "description",
-        name: "description",
-        content: "Nuxt.js project"
-      }
+export default function() {
+  return {
+    mode: 'spa',
+    router: {
+      base: '/github-viewer/',
+    },
+    plugins: [
+      { src: '~/plugins/nuxt-client-init.ts', ssr: false },
+      { src: '~plugins/element-ui' },
+      { src: '~plugins/font-awesome' },
     ],
-    link: [
-      {
-        rel: "icon",
-        type: "image/x-icon",
-        href: "/github-viewer/favicon.ico",
-      }
-    ]
-  },
-  /*
-  ** Customize the progress-bar color
-  */
-  loading: { color: "#3B8070" },
-  /*
-  ** Build configuration
-  */
-  css: [
-    "~/assets/css/main.css",
-    "element-ui/lib/theme-chalk/index.css",
-  ],
-  build: {
-    vendor: ['element-ui'],
-  },
-  modules: [
-    "@nuxtjs/axios",
-    "~/modules/typescript.js"
-  ],
-  axios: {},
+    env: {
+      baseUrl:
+      process.env.BASE_URL ||
+      `http://${host}:${port}`
+    },
+    head: {
+      title: "GitHub Viewer",
+      meta: [
+        { charset: "utf-8" },
+        {
+          name: "viewport",
+          content:
+            "width=device-width, initial-scale=1"
+        },
+        {
+          hid: "description",
+          name: "description",
+          content: "Nuxt.js project"
+        }
+      ],
+      link: [
+        {
+          rel: "icon",
+          type: "image/x-icon",
+          href: "/github-viewer/favicon.ico",
+        }
+      ]
+    },
+    /*
+    ** Customize the progress-bar color
+    */
+    loading: { color: "#3B8070" },
+    /*
+    ** Build configuration
+    */
+    css: [
+      "~/assets/css/main.css",
+      "element-ui/lib/theme-chalk/index.css",
+    ],
+    modules: [
+      "@nuxtjs/axios",
+      "~/modules/typescript.js"
+    ],
+    axios: {}
+  }
 }
