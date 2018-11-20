@@ -54,7 +54,7 @@ const ICON_URLS_BY_LANGUAGE = {
   "D": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/D_Programming_Language_logo.svg/124px-D_Programming_Language_logo.svg.png",
   "Dart": "https://cdn.svgporn.com/logos/dart.svg",
   "Erlang": "https://cdn.svgporn.com/logos/erlang.svg",
-  "unknown": "https://pbs.twimg.com/profile_images/832875381246087168/uU-0yKmC.jpg",
+  "unknown": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1oXV8iFyw89aTGZuBiyJjzuuZvFm1cFoHWFY57c1aqSqohOEPuA",
 };
 
 export interface Owner {
