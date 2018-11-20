@@ -21,7 +21,7 @@ $ npm run build
 $ npm start
 
 # build SPA
-$ npm ghpages-build
+$ npm run ghpages-build
 
 # generate static project
 $ npm run generate
