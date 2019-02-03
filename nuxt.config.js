@@ -23,7 +23,7 @@ export default function () {
   return {
     mode: 'spa',
     router: {
-      base: '/github-viewer/',
+      base: '/',
     },
     plugins: [
       {src: '~/plugins/nuxt-client-init.ts', ssr: false},
@@ -77,7 +77,7 @@ export default function () {
     manifest: {
       name: 'GitHub Viewer',
       lang: 'en',
-      start_url: '/github-viewer/repositories/',
+      start_url: '/repositories/',
     },
     axios: {}
   }

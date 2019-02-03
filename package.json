@@ -17,7 +17,6 @@
   "scripts": {
     "dev": "nuxt -H 0.0.0.0 --spa",
     "build": "nuxt build",
-    "ghpages-build": "nuxt build && rm -rf docs && mv dist docs",
     "start": "nuxt start",
     "generate": "nuxt generate"
   },
