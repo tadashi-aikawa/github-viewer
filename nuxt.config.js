@@ -74,6 +74,11 @@ export default function () {
       '@nuxtjs/pwa',
       "~/modules/typescript.js",
     ],
+    manifest: {
+      name: 'GitHub Viewer',
+      lang: 'en',
+      start_url: '/github-viewer/repositories/',
+    },
     axios: {}
   }
 }
