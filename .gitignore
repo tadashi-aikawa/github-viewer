@@ -12,3 +12,6 @@ dist
 
 # ide
 /.idea
+
+# pwa
+sw.*
