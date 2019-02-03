@@ -1,31 +1,31 @@
 Github Viewer
 =============
 
-## Demo
+Demo
+----
 
-https://tadashi-aikawa.github.io/github-viewer/repositories/
+https://github-viewer.netlify.com/repositories/
 
 ![](pv.gif)
 
-## Build Setup
+For developer
+-------------
 
-``` bash
-# install dependencies
-$ npm install # Or yarn install
+### Install dependencies
 
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm start
-
-# build SPA
-$ npm run ghpages-build
-
-# generate static project
-$ npm run generate
+```
+$ npm install
 ```
 
-For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
+### Debug
 
+```
+$ npm run dev
+```
+
+### Build and Start
+
+```
+$ npm run build
+$ npm start
+```
