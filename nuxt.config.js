@@ -1,4 +1,5 @@
 import parseArgs from 'minimist'
+
 const argv = parseArgs(process.argv.slice(2), {
   alias: {
     H: "hostname",
@@ -18,26 +19,26 @@ const host =
   process.env.HOST ||
   process.env.npm_package_config_nuxt_host ||
   "localhost"
-export default function() {
+export default function () {
   return {
     mode: 'spa',
     router: {
       base: '/github-viewer/',
     },
     plugins: [
-      { src: '~/plugins/nuxt-client-init.ts', ssr: false },
-      { src: '~plugins/element-ui' },
-      { src: '~plugins/font-awesome' },
+      {src: '~/plugins/nuxt-client-init.ts', ssr: false},
+      {src: '~plugins/element-ui'},
+      {src: '~plugins/font-awesome'},
     ],
     env: {
       baseUrl:
-      process.env.BASE_URL ||
-      `http://${host}:${port}`
+        process.env.BASE_URL ||
+        `http://${host}:${port}`
     },
     head: {
       title: "GitHub Viewer",
       meta: [
-        { charset: "utf-8" },
+        {charset: "utf-8"},
         {
           name: "viewport",
           content:
@@ -60,7 +61,7 @@ export default function() {
     /*
     ** Customize the progress-bar color
     */
-    loading: { color: "#3B8070" },
+    loading: {color: "#3B8070"},
     /*
     ** Build configuration
     */
@@ -70,7 +71,8 @@ export default function() {
     ],
     modules: [
       "@nuxtjs/axios",
-      "~/modules/typescript.js"
+      '@nuxtjs/pwa',
+      "~/modules/typescript.js",
     ],
     axios: {}
   }
