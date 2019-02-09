@@ -54,7 +54,7 @@ export default function () {
         {
           rel: "icon",
           type: "image/x-icon",
-          href: "/github-viewer/favicon.ico",
+          href: "/favicon.ico",
         }
       ]
     },
